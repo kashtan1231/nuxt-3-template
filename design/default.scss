@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button,
+a {
+  border: none;
+  background-color: transparent;
+  color: $black;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a {
+  color: $red;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+img {
+  width: auto;
+  height: auto;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}

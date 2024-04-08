@@ -1,0 +1,67 @@
+@import 'https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap';
+
+$font-family-default: 'Raleway', sans-serif;
+
+h1 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 68px;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+
+h5 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+h6 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+input {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: $font-family-default;
+  line-height: 28px;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+button {
+  font-family: $font-family-default;
+}
+
+a {
+  font-weight: 600;
+  font-family: $font-family-default;
+}
+
+b {
+  font-weight: 700;
+}
