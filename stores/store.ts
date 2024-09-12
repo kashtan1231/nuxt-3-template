@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-interface State {}
+type State = object
 
 export const usePackageStore = defineStore('package', {
   actions: {},
