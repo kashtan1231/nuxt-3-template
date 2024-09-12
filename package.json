@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "prepare": "husky",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "lint": "eslint .",
     "format": "prettier .  --write",
     "stylelint": "stylelint \"**/*.vue\" --fix"
   },
