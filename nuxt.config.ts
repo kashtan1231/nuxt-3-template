@@ -28,7 +28,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-09-12',
 
   devServer: {
-    port: 4001,
+    port: 3001,
     https: {
       key: './certs/privkey.pem',
       cert: './certs/cert.pem',
