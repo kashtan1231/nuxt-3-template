@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   vite: {
     build: {
       target: 'ESNext',
@@ -13,6 +14,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   modules: [
     [
       '@pinia/nuxt',
@@ -21,4 +23,14 @@ export default defineNuxtConfig({
       },
     ],
   ],
+
+  compatibilityDate: '2024-09-12',
+
+  devServer: {
+    port: 4001,
+    https: {
+      key: './certs/privkey.pem',
+      cert: './certs/cert.pem',
+    },
+  },
 })
