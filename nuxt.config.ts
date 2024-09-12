@@ -22,6 +22,7 @@ export default defineNuxtConfig({
         autoImports: ['defineStore', 'acceptHMRUpdate'],
       },
     ],
+    '@nuxt/eslint',
   ],
 
   compatibilityDate: '2024-09-12',
