@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <div @click="$emit('close')" class="layout__wrapper">
+    <div class="layout__wrapper" @click="$emit('close')">
       <slot />
     </div>
   </div>
