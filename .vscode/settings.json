@@ -1,6 +1,5 @@
 {
   "stylelint.validate": ["css", "scss", "vue"],
-  "stylelint.configFile": "./.stylelintrc.json",
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": "explicit"
   }

@@ -63,13 +63,13 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: '2024-09-12',
-
   devServer: {
-    port: 3001,
+    port: 3000,
     https: {
       key: './certs/privkey.pem',
       cert: './certs/cert.pem',
     },
   },
+
+  compatibilityDate: '2025-01-24',
 })
