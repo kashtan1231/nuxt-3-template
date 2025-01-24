@@ -1,0 +1,93 @@
+$font-family-default: 'Inter', sans-serif;
+
+%p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+%p-small {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+%h4 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+h1 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 68px;
+
+  @include respond-to('mobile') {
+    font-size: 40px;
+    line-height: 54px;
+  }
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+
+  @include respond-to('mobile') {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+
+  @include respond-to('mobile') {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+h4 {
+  @extend %h4;
+}
+
+// h5 {
+//   font-size: 32px;
+//   font-weight: 700;
+//   line-height: 36px;
+
+//   @include respond-to('mobile') {
+//     font-size: 24px;
+//     line-height: 28px;
+//   }
+// }
+
+p {
+  @extend %p;
+}
+
+input {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+
+  @include respond-to('mobile') {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+b {
+  font-weight: 700;
+}
+
+@mixin max-lines($lines) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}

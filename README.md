@@ -1,22 +1,47 @@
 # Nuxt 3 template
 
-It is template of nuxt 3 project
+This is modern nuxt 3 project template
+
+## Https
+
+After cloning repository you need to generate certs for https by your own or get it somewhere
+Try [this](https://stackoverflow.com/questions/10175812/how-to-generate-a-self-signed-ssl-certificate-using-openssl) or anything else
+
+Put it in `~/certs/`
 
 ## Installation
 
-After cloning repository you need to run
+Recommended to use Bun as a package manager
+
+To setup the project you need to run
 
 ```powershell
-npm run i
+bun run setup
 ```
 
-to install all dependencies
+this will refresh and install all dependencies
 
 To run the project you need to run
 
 ```powershell
-npm run dev
+bun run dev
 ```
+
+## Update and adding dependencies
+
+To update outdated dependencies you need to check it firstly
+
+```powershell
+bun outdated
+```
+
+than you can run
+
+```powershell
+bun run setup --force
+```
+
+to delete lock file and recreate it due to package.json file
 
 ## IDE Extensions
 
