@@ -6,4 +6,8 @@
 
 <script setup lang="ts"></script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.home {
+  background-color: $gray-light;
+}
+</style>

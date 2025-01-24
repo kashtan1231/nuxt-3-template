@@ -7,6 +7,30 @@ const forceFlag = process.argv.includes('--force')
 
 console.log('Setting up the project')
 
+// Setting up .env
+const envPath = resolve(process.cwd(), '.env')
+let envContent = ''
+
+if (existsSync(envPath)) {
+  envContent = readFileSync(envPath, 'utf8')
+}
+
+if (!envContent.includes('HTTPS=')) {
+  const readline = await import('readline/promises')
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  })
+
+  const answer = await rl.question('Do you want to use HTTPS? (y - yes/n - no): ')
+  const httpsValue = answer.toLowerCase().startsWith('y') ? 'true' : 'false'
+
+  envContent += `HTTPS=${httpsValue}`
+  writeFileSync(envPath, envContent)
+
+  rl.close()
+}
+
 // Deleting directories
 const directoriesToDelete = ['.nuxt', 'node_modules', '.output']
 
@@ -33,18 +57,6 @@ if (existsSync(lockFilePath)) {
 } else {
   console.log('bun.lockb not found, running bun install')
   execSync('bun install', { stdio: 'inherit' })
-}
-
-// Setting up .env
-const envPath = resolve(process.cwd(), '.env')
-let envContent = ''
-
-if (existsSync(envPath)) {
-  envContent = readFileSync(envPath, 'utf8')
-}
-
-if (!envContent.includes('BASE_API_URL')) {
-  writeFileSync(envPath, envContent + 'BASE_API_URL=https://develop.mixfame.com\n', 'utf8')
 }
 
 console.log('Setup complete')
