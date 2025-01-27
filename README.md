@@ -4,7 +4,7 @@ This is modern nuxt 3 project template
 
 ## Https
 
-After cloning repository you need to generate certs for https by your own or get it somewhere
+After cloning repository recomended to generate certs for https
 
 Try [mkcert](https://github.com/FiloSottile/mkcert) to create locally-trusted certs or anything else
 
