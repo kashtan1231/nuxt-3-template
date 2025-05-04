@@ -1,5 +1,4 @@
 import type { API } from '~/types/api'
-import type { User } from '~/types/user'
 import type { UseFetchOptions } from '#app'
 
 export const useAPI = async <T>(
@@ -7,8 +6,6 @@ export const useAPI = async <T>(
   opts?: Parameters<typeof $fetch<T>>[1],
   executingOptions?: API.RequestOptions
 ) => {
-  const tokens = useCookie<User.Tokens>('tokens')
-
   const res: API.NetworkResponse<T> = {
     status: ref(0),
     data: ref(null),
@@ -20,10 +17,6 @@ export const useAPI = async <T>(
     await $fetch<T>(request, {
       baseURL: useRuntimeConfig().public.BASE_API_URL,
       ...opts,
-      onRequest({ options }) {
-        if (tokens.value?.access)
-          options.headers.set('Authorization', `Bearer ${tokens.value.access}`)
-      },
       onResponse({ response }) {
         res.status.value = response.status
         res.data.value = response._data
@@ -49,14 +42,8 @@ export const useAPI = async <T>(
 }
 
 export const useServerAPI = async <T>(request: RequestInfo, opts?: UseFetchOptions<T>) => {
-  const tokens = useCookie<User.Tokens>('tokens')
-
   return useFetch(request, {
     baseURL: useRuntimeConfig().public.BASE_API_URL,
     ...opts,
-    onRequest({ options }) {
-      if (tokens.value?.access)
-        options.headers.set('Authorization', `Bearer ${tokens.value.access}`)
-    },
   })
 }

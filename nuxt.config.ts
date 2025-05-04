@@ -16,6 +16,10 @@ export default defineNuxtConfig({
     },
   },
 
+  nitro: {
+    preset: 'bun',
+  },
+
   vite: {
     build: {
       target: 'ESNext',
@@ -50,6 +54,7 @@ export default defineNuxtConfig({
         plugins: ['duration', 'relativeTime'],
       },
     ],
+    '@nuxt/image',
   ],
 
   piniaPluginPersistedstate: {
@@ -59,6 +64,24 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       Inter: '100..900',
+    },
+  },
+
+  image: {
+    provider: 'ipx',
+    domains: ['example.com'],
+    ipx: {
+      modifiers: {
+        format: 'webp',
+        quality: 80,
+      },
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      BASE_API_URL: process.env.BASE_API_URL,
+      BASE_URL: process.env.BASE_URL,
     },
   },
 
