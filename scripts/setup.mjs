@@ -9,10 +9,21 @@ console.log('Setting up the project')
 
 // Setting up .env
 const envPath = resolve(process.cwd(), '.env')
-let envContent = ''
+let envContent = existsSync(envPath) ? readFileSync(envPath, 'utf8') : ''
 
-if (existsSync(envPath)) {
-  envContent = readFileSync(envPath, 'utf8')
+if (!envContent.includes('BASE_API_URL')) {
+  envContent += 'BASE_API_URL=https://example.com\n'
+  writeFileSync(envPath, envContent, 'utf8')
+}
+
+if (!envContent.includes('BASE_URL')) {
+  envContent += 'BASE_URL=https://example.com\n'
+  writeFileSync(envPath, envContent, 'utf8')
+}
+
+if (!envContent.includes('NODE_ENV')) {
+  envContent += 'NODE_ENV=development\n'
+  writeFileSync(envPath, envContent, 'utf8')
 }
 
 if (!envContent.includes('HTTPS=')) {
@@ -25,7 +36,7 @@ if (!envContent.includes('HTTPS=')) {
   const answer = await rl.question('Do you want to use HTTPS? (y - yes/n - no): ')
   const httpsValue = answer.toLowerCase().startsWith('y') ? 'true' : 'false'
 
-  envContent += `HTTPS=${httpsValue}`
+  envContent += `HTTPS=${httpsValue}\n`
   writeFileSync(envPath, envContent)
 
   rl.close()
@@ -43,19 +54,19 @@ directoriesToDelete.forEach((dir) => {
 })
 
 // Managing lock file
-const lockFilePath = resolve(process.cwd(), 'bun.lockb')
+const lockFilePath = resolve(process.cwd(), 'bun.lock')
 
 if (forceFlag && existsSync(lockFilePath)) {
-  console.log('Removing bun.lockb due to --force flag')
+  console.log('Removing bun.lock due to --force flag')
   rmSync(lockFilePath)
 }
 
 // Installing dependencies
 if (existsSync(lockFilePath)) {
-  console.log('bun.lockb found, running bun install --frozen-lockfile')
+  console.log('bun.lock found, running bun install --frozen-lockfile')
   execSync('bun install --frozen-lockfile', { stdio: 'inherit' })
 } else {
-  console.log('bun.lockb not found, running bun install')
+  console.log('bun.lock not found, running bun install')
   execSync('bun install', { stdio: 'inherit' })
 }
 
