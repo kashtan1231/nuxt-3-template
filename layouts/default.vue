@@ -1,12 +1,8 @@
 <template>
   <div class="layout">
-    <MHeader />
-
     <div class="layout__wrapper">
       <slot></slot>
     </div>
-
-    <MFooter />
   </div>
 </template>
 

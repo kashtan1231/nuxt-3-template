@@ -23,15 +23,14 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use 'sass:list'; @import '~/styles/imports.scss';`,
+          additionalData: '@use "sass:list"; @use "~/assets/styles" as *;',
           api: 'modern-compiler',
-          silenceDeprecations: ['import'],
         },
       },
     },
   },
 
-  css: ['normalize.css/normalize.css'],
+  css: ['modern-normalize'],
 
   modules: [
     [
