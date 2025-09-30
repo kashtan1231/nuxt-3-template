@@ -10,5 +10,6 @@ export declare namespace API {
   export interface RequestOptions {
     loading?: Nullable<Ref<boolean>>
     server?: boolean
+    errorMessage?: Ref<string>
   }
 }

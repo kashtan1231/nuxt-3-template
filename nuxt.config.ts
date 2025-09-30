@@ -28,7 +28,6 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           additionalData: '@use "sass:list"; @use "~/assets/styles" as *;',
-          api: 'modern-compiler',
         },
       },
     },
@@ -55,6 +54,8 @@ export default defineNuxtConfig({
       },
     ],
     '@nuxt/image',
+    'nuxt-svgo',
+    'nuxt-vitalizer',
   ],
 
   piniaPluginPersistedstate: {
@@ -76,6 +77,16 @@ export default defineNuxtConfig({
         quality: 80,
       },
     },
+  },
+
+  svgo: {
+    componentPrefix: 'I',
+  },
+
+  vitalizer: {
+    disablePrefetchLinks: true,
+    disablePreloadLinks: true,
+    disableStylesheets: true,
   },
 
   runtimeConfig: {
