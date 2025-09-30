@@ -1,0 +1,24 @@
+@mixin position-start($value) {
+  left: $value;
+
+  html[dir='rtl'] & {
+    right: $value;
+    left: auto;
+  }
+}
+
+@mixin position-end($value) {
+  right: $value;
+
+  html[dir='rtl'] & {
+    right: auto;
+    left: $value;
+  }
+}
+
+@mixin max-lines($lines) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
