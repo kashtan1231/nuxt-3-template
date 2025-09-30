@@ -1,4 +1,4 @@
-$transition-duration: 0.2s;
+@use 'others' as *;
 
 // slide down
 .slide-down-enter-active,
